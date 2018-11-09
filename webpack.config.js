@@ -2,6 +2,10 @@ const path = require('path');
 
 module.exports = {
   entry: './src/index.js',
+  watch: true,
+  watchOptions: {
+    ignored: /node_modeules/
+  },
   output: {
     path: path.resolve(__dirname, 'dist/'),
     filename: 'bundle.js',

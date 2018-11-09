@@ -3,8 +3,6 @@ const app = express();
 const http = require('http').Server(app);
 const renderFile = require('ejs').renderFile;
 
-////
-
 app.use(express.static('./dist/'));
 app.set('views', './dist/');
 app.engine('html', renderFile);

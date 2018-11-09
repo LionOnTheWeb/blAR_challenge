@@ -1,0 +1,7 @@
+# ignore system and module files
+/node_modules/
+package-lock.json
+.DS_Store
+
+# ignore bundle file
+dist/bundle.js
