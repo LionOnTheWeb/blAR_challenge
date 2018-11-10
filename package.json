@@ -22,6 +22,7 @@
     "webpack": "^3.8.1"
   },
   "dependencies": {
+    "dat.gui": "^0.7.3",
     "orbit-controls-es6": "^2.0.0",
     "three": "^0.87.1"
   }

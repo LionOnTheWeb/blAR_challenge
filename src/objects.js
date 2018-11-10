@@ -40,9 +40,14 @@ const controls = env.controls;
 const renderer = env.renderer;
 const scene = env.scene;
 const camera = env.camera;
+const gui = env.gui;
+const guiControls = env.guiControls;
 
 // Export legacy variables to be used
 exports.controls = controls;
 exports.renderer = renderer;
 exports.scene = scene;
 exports.camera = camera;
+exports.cube = cube;
+exports.gui = gui;
+exports.guiControls = guiControls;
