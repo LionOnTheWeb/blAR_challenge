@@ -26,14 +26,35 @@ import {
 const geometry = new BoxGeometry(1, 1, 1);
 
 const material = new MeshPhongMaterial( {
-    color: 0x00ff00,
+    // color: 0x00ff00,
+    color: guiControls.changeColor,
     polygonOffset: true,
     polygonOffsetFactor: 1, // positive value pushes polygon further away
     polygonOffsetUnits: 1
 } );
 
-const cube = new Mesh(geometry, material);
-env.scene.add(cube);
+let cube = new Mesh(geometry, material);
+
+export default function addRandomCube(){
+	console.log("addrandomcube has been called");
+	window.setInterval(function(){
+
+		let cube = new Mesh(geometry, material);
+		// cube.position.x = Math.random() * 100;
+		// cube.position.y = Math.random() * 100;
+
+		let x = Math.random() * 100;
+		let y = Math.random() * 100;
+		let z = Math.random() * 100;
+
+		cube.position.set(x, y, z);
+		scene.add(cube);
+	}, 1000);
+}
+
+addRandomCube();
+
+// env.scene.add(cube);
 
 // add wireframe mesh to the cube
 const geo = new EdgesGeometry(cube.geometry);

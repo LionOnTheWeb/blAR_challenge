@@ -44,20 +44,18 @@ camera.position.z = 2.5;
 
 // ==== gui setup ==== //
 const guiControls =  new function() {
-	this.rotationX = 0.01;
-	this.rotationY = 0.01;
-	this.rotationZ = 0.01;
+	this.rotationX = 0.00;
+	this.rotationY = 0.00;
+	this.rotationZ = 0.00;
 
-	this.changeColor = "#ffae23";
+	this.changeColor = '#00ff00';
 }
 
 const gui = new dat.GUI();
 
-gui.add(guiControls, 'rotationX', 0, 1);
-gui.add(guiControls, 'rotationY', 0, 1);
-gui.add(guiControls, 'rotationZ', 0, 1);
-
-
+gui.add(guiControls, 'rotationX', 0.00, 1);
+gui.add(guiControls, 'rotationY', 0.00, 1);
+gui.add(guiControls, 'rotationZ', 0.00, 1);
 
 // Export variables to be used
 exports.scene = scene;

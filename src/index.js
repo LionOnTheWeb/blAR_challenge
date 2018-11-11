@@ -25,24 +25,27 @@ import {Raycaster} from 'three';
 const objects = require("./objects.js");
 const guiControls = objects.guiControls;
 const matColor = objects.matColor;
+import addRandomCube from './objects';
 
-const cube = objects.cube;
+// const cube = objects.cube;
 
 // Initiate raycaster
 const raycaster = new Raycaster();
 
 // Update loop
 const update = () =>{
-	cube.rotation.x += guiControls.rotationX;
-	cube.rotation.y += guiControls.rotationY;
-	cube.rotation.z += guiControls.rotationZ;
+	// cube.rotation.x += guiControls.rotationX;
+	// cube.rotation.y += guiControls.rotationY;
+	// cube.rotation.z += guiControls.rotationZ;
 
-	// cube.material.color = guiControls.currColor;
+	// addRandomCube();
+
 	requestAnimationFrame(update);
 	objects.controls.update();
 	objects.renderer.render(objects.scene, objects.camera);
 }
 
 update();
+// addRandomCube();
 
 // displayGUI();
