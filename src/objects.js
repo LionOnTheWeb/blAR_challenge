@@ -32,35 +32,37 @@ const material = new MeshPhongMaterial( {
     polygonOffsetFactor: 1, // positive value pushes polygon further away
     polygonOffsetUnits: 1
 } );
+// add wireframe mesh to the cube
 
 let cube = new Mesh(geometry, material);
+
+
+const edgeGeometry = new EdgesGeometry(cube.geometry);
+const lineMaterial = new LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
+const wireframe = new LineSegments( edgeGeometry, lineMaterial );
+
+cube.add(wireframe);
 
 export default function addRandomCube(){
 	console.log("addrandomcube has been called");
 	window.setInterval(function(){
 
 		let cube = new Mesh(geometry, material);
-		// cube.position.x = Math.random() * 100;
-		// cube.position.y = Math.random() * 100;
+		cube.add(wireframe);
 
 		let x = Math.random() * 100;
 		let y = Math.random() * 100;
 		let z = Math.random() * 100;
 
 		cube.position.set(x, y, z);
+		cube.rotation.set(x, y, z);
 		scene.add(cube);
+
 	}, 1000);
 }
 
 addRandomCube();
 
-// env.scene.add(cube);
-
-// add wireframe mesh to the cube
-const geo = new EdgesGeometry(cube.geometry);
-const mat = new LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
-const wireframe = new LineSegments( geo, mat );
-cube.add(wireframe);
 
 // Change cube color with gui controls 
 gui

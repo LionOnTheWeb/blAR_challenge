@@ -39,7 +39,7 @@ scene.add( lights[ 2 ] );
 
 camera.position.x = 2.5;
 camera.position.y = 4;
-camera.position.z = 2.5;
+camera.position.z = 5;
 // camera.position.set(5, 20, -30);
 
 // ==== gui setup ==== //

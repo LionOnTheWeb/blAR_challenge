@@ -1,7 +1,7 @@
 /*
 * Coding challenge details:
 *
-* 1) Every second, a new cube should render in a random position in the scene. Each cube should be the same size and color, but the position and rotation of the cube should be random.
+* 1) {Done} Every second, a new cube should render in a random position in the scene. Each cube should be the same size and color, but the position and rotation of the cube should be random. {Done}
 *
 * 2) {DONE} Please add a UI element which allows the user to change the color of the cubes in the scene. When the user selects a new color, all of the cubes that are present in the scene should be given the new color. Please include at least 5 different color options. {DONE}
 *
