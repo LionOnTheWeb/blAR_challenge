@@ -47,6 +47,8 @@ const guiControls =  new function() {
 	this.rotationX = 0.01;
 	this.rotationY = 0.01;
 	this.rotationZ = 0.01;
+
+	this.changeColor = "#ffae23";
 }
 
 const gui = new dat.GUI();
@@ -54,6 +56,7 @@ const gui = new dat.GUI();
 gui.add(guiControls, 'rotationX', 0, 1);
 gui.add(guiControls, 'rotationY', 0, 1);
 gui.add(guiControls, 'rotationZ', 0, 1);
+
 
 
 // Export variables to be used

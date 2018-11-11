@@ -4,6 +4,14 @@
 
 // Import environmenet objects
 const env = require("./scene.js");
+// Set legacy variables for exporting
+const controls = env.controls;
+const renderer = env.renderer;
+const scene = env.scene;
+const camera = env.camera;
+const gui = env.gui;
+const guiControls = env.guiControls;
+
 import {
 	BoxGeometry, 
 	EdgesGeometry, 
@@ -17,7 +25,7 @@ import {
 // cube setup
 const geometry = new BoxGeometry(1, 1, 1);
 
-var material = new MeshPhongMaterial( {
+const material = new MeshPhongMaterial( {
     color: 0x00ff00,
     polygonOffset: true,
     polygonOffsetFactor: 1, // positive value pushes polygon further away
@@ -27,21 +35,22 @@ var material = new MeshPhongMaterial( {
 const cube = new Mesh(geometry, material);
 env.scene.add(cube);
 
-// wireframe mesh to be added to the cube
+// add wireframe mesh to the cube
 const geo = new EdgesGeometry(cube.geometry);
 const mat = new LineBasicMaterial( { color: 0xffffff, linewidth: 2 } );
 const wireframe = new LineSegments( geo, mat );
 cube.add(wireframe);
 
+// Change cube color with gui controls 
+gui
+	.addColor(guiControls, 'changeColor')
+	.listen()
+	.onChange(function(e) {
+		cube.material.color.setStyle(e);
+	});
+
 env.controls.update();
 
-// Set legacy variables for exporting
-const controls = env.controls;
-const renderer = env.renderer;
-const scene = env.scene;
-const camera = env.camera;
-const gui = env.gui;
-const guiControls = env.guiControls;
 
 // Export legacy variables to be used
 exports.controls = controls;
