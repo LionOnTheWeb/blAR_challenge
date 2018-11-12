@@ -9,7 +9,6 @@ import {
 	PointLight,
 	} from 'three'; 
 import OrbitControls from 'orbit-controls-es6';
-import * as dat from 'dat.gui';
 
 // ==== scene setup ==== //
 const scene = new Scene();
@@ -40,27 +39,10 @@ scene.add( lights[ 2 ] );
 camera.position.x = 2.5;
 camera.position.y = 4;
 camera.position.z = 5;
-// camera.position.set(5, 20, -30);
-
-// ==== gui setup ==== //
-const guiControls =  new function() {
-	this.rotationX = 0.00;
-	this.rotationY = 0.00;
-	this.rotationZ = 0.00;
-
-	this.changeColor = '#00ff00';
-}
-
-const gui = new dat.GUI();
-
-gui.add(guiControls, 'rotationX', 0.00, 1);
-gui.add(guiControls, 'rotationY', 0.00, 1);
-gui.add(guiControls, 'rotationZ', 0.00, 1);
+// camera.position.set(10, 5, 3);
 
 // Export variables to be used
 exports.scene = scene;
 exports.camera = camera;
 exports.controls = controls;
 exports.renderer = renderer;
-exports.gui = gui;
-exports.guiControls = guiControls;

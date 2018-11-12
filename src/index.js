@@ -5,10 +5,14 @@
 *
 * 2) {DONE} Please add a UI element which allows the user to change the color of the cubes in the scene. When the user selects a new color, all of the cubes that are present in the scene should be given the new color. Please include at least 5 different color options. {DONE}
 *
-* 3) Please add a UI element which allows the user to grow or shrink the objects in the scene. The user's selected scale should apply to all objects in the scene. Feel free to use a slider, dial, or any other UI implementation of your choosing for this portion of the task.
+* 3) {DONE} Please add a UI element which allows the user to grow or shrink the objects in the scene. The user's selected scale should apply to all objects in the scene. Feel free to use a slider, dial, or any other UI implementation of your choosing for this portion of the task. {DONE}
 *
 * Author: Asad Richardson
 * Date started: Friday, November 9th 2018
+* Date finished: Sunday, November 11th 2018
+*
+* Update: I've been trying to figure out how to scale the cubes individually instead of having to scale them in a group. Guess we'll talk about that on Monday!
+*
 */
 
 import {Raycaster} from 'three';
@@ -25,20 +29,23 @@ import {Raycaster} from 'three';
 const objects = require("./objects.js");
 const guiControls = objects.guiControls;
 const matColor = objects.matColor;
-import addRandomCube from './objects';
-
-// const cube = objects.cube;
+const group = objects.group;
+const newCube = objects.newCube;
+// import {addRandomCube} from './objects';
+const cube = objects.cube;
 
 // Initiate raycaster
 const raycaster = new Raycaster();
 
-// Update loop
+// Update loop - updates/renders per frame
 const update = () =>{
-	// cube.rotation.x += guiControls.rotationX;
-	// cube.rotation.y += guiControls.rotationY;
-	// cube.rotation.z += guiControls.rotationZ;
 
-	// addRandomCube();
+	// group.rotation.x += guiControls.rotationX;
+	// group.rotation.y += guiControls.rotationY;
+	// group.rotation.z += guiControls.rotationZ;
+	group.scale.x = guiControls.scale;
+	group.scale.y = guiControls.scale;
+	group.scale.z = guiControls.scale;
 
 	requestAnimationFrame(update);
 	objects.controls.update();
@@ -46,6 +53,3 @@ const update = () =>{
 }
 
 update();
-// addRandomCube();
-
-// displayGUI();
